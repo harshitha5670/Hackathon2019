@@ -9,8 +9,6 @@ public class Users {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   @Column
-  private Integer userid;
-  @Column
   private Integer empid;
   @Column
   private String firstname;
@@ -26,14 +24,6 @@ public class Users {
   @JoinColumn(name = "practice", referencedColumnName = "practiceid")
   private Practice practice;
 
-
-  public Integer getUserid() {
-    return userid;
-  }
-
-  public void setUserid(Integer userid) {
-    this.userid = userid;
-  }
 
   public Integer getEmpid() {
     return empid;
@@ -94,7 +84,6 @@ public class Users {
   @Override
   public String toString() {
     return "Users{" +
-      "userid=" + userid +
       ", empid=" + empid +
       ", firstname='" + firstname + '\'' +
       ", lastname='" + lastname + '\'' +

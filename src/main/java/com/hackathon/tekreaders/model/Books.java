@@ -9,8 +9,6 @@ public class Books {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   @Column
-  private Integer bookid;
-  @Column
   private Integer isbn;
   @OneToOne(cascade = CascadeType.ALL)
   @JoinColumn(name = "language",referencedColumnName = "languageid")
@@ -28,15 +26,6 @@ public class Books {
   @OneToOne(cascade = CascadeType.ALL)
   @JoinColumn(name = "status", referencedColumnName = "statusid")
   private BookStatus bookStatus;
-
-
-  public Integer getBookid() {
-    return bookid;
-  }
-
-  public void setBookid(Integer bookid) {
-    this.bookid = bookid;
-  }
 
 
   public Integer getIsbn() {
@@ -98,7 +87,6 @@ public class Books {
   @Override
   public String toString() {
     return "Books{" +
-      "bookid=" + bookid +
       ", isbn=" + isbn +
       ", language=" + language +
       ", title='" + title + '\'' +
