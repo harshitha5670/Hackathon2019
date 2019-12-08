@@ -20,13 +20,21 @@ public class UsersServices {
     return usersReppository.findAll();
   }
 
-  public Optional<Users> findUsersById(Integer integer){
+  public Optional<Users> findUserByEmail(String email){
+    return usersReppository.findByEmail(email);
+  }
+
+  public Optional<Users> findUserByID(Integer integer) {
     return usersReppository.findById(integer);
   }
 
   public List<Users> addUsers(Users users) {
     usersReppository.save(users);
     return usersReppository.findAll();
+  }
+
+  public void saveUser(Users users) {
+    usersReppository.save(users);
   }
 
   public void deleteUser(Integer integer) {

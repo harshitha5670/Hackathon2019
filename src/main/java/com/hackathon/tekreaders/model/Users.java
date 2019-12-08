@@ -1,29 +1,38 @@
 package com.hackathon.tekreaders.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "users")
 public class Users {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  @Column
+  @Column(nullable = false, unique = true)
   private Integer empid;
+  @Column(nullable = false, unique = true)
+  @Email(message = "Please provide valid email")
+  @NotEmpty(message = "Please provide an email")
+  private String email;
   @Column
+  @NotEmpty(message = "Please provide firstName")
   private String firstname;
   @Column
+  @NotEmpty(message = "Please provide lastName")
   private String lastname;
   @Column
   private String gender;
   @Column
+  @NotNull
   private String mobilenumber;
-  @Column
-  private String email;
   @OneToOne(cascade = CascadeType.ALL)
   @JoinColumn(name = "practice", referencedColumnName = "practiceid")
   private Practice practice;
 
+  public Users() {
+  }
 
   public Integer getEmpid() {
     return empid;
@@ -33,6 +42,13 @@ public class Users {
     this.empid = empid;
   }
 
+  public String getEmail() {
+    return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
+  }
   public String getFirstname() {
     return firstname;
   }
@@ -65,14 +81,6 @@ public class Users {
     this.mobilenumber = mobilenumber;
   }
 
-  public String getEmail() {
-    return email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
   public Practice getPractice() {
     return practice;
   }
@@ -85,11 +93,11 @@ public class Users {
   public String toString() {
     return "Users{" +
       ", empid=" + empid +
+      ", email='" + email + '\'' +
       ", firstname='" + firstname + '\'' +
       ", lastname='" + lastname + '\'' +
       ", gender='" + gender + '\'' +
       ", mobilenumber='" + mobilenumber + '\'' +
-      ", email='" + email + '\'' +
       ", practice=" + practice +
       '}';
   }

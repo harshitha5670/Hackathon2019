@@ -5,7 +5,6 @@ import com.hackathon.tekreaders.services.BorrowerServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -40,4 +39,14 @@ public class BorrowerController {
   public void deleteBook(@PathVariable("id") Integer id) {
     borrowerServices.deleteBorrower(id);
   }
+
+//  @GetMapping(value = "/borrower/getByIsbn/{isbn}")
+//  public Optional<Borrower> getByIsbn(@PathVariable Integer integer) {
+//    return borrowerServices.getBorrowBooksByIsbn(integer);
+//  }
+//
+//  @GetMapping(value = "/borrower/getByEmpid/{empid}")
+//  public Optional<Borrower> getByEmpid(@PathVariable Integer integer) {
+//    return borrowerServices.getBorrowBooksByEmpid(integer);
+//  }
 }

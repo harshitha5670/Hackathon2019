@@ -28,4 +28,7 @@ public class LanguageServices {
     languageRepository.save(language);
     return languageRepository.findAll();
   }
+//  public Optional<Language> getByLanguageName(String string) {
+//    return languageRepository.getByName(string);
+//  }
 }

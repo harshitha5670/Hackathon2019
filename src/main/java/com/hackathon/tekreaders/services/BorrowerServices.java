@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import java.math.BigInteger;
 import java.util.List;
 import java.util.Optional;
 
@@ -42,5 +43,15 @@ public class BorrowerServices {
     return ResponseEntity.noContent().build();
 
   }
+
+//  public Optional<Borrower> getBorrowBooksByIsbn(Integer integer) {
+//    Optional<Borrower> borrower = borrowerRepository.getByIsbn(integer);
+//    return  borrower;
+//  }
+//
+//  public Optional<Borrower> getBorrowBooksByEmpid(Integer integer) {
+//
+//    return borrowerRepository.getByEmpid(integer);
+//  }
 
 }

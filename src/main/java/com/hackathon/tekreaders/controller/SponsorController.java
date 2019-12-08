@@ -5,6 +5,8 @@ import com.hackathon.tekreaders.services.SponsorServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.math.BigInteger;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,7 +23,7 @@ public class SponsorController {
   }
 
   @GetMapping(value = "/sponsors/{id}")
-  public Optional<Sponsor> getSponserById(@PathVariable("id") Integer id){
+  public Optional<Sponsor> getSponserById(@PathVariable("id") Integer id) {
     return sponserServices.findSponsersById(id);
   }
 
@@ -31,8 +33,8 @@ public class SponsorController {
   }
 
   @PutMapping(value = "/sponsors/update/{id}")
-  public ResponseEntity<Object> updateSponser(@RequestBody Sponsor sponser, @PathVariable("id") Integer integer){
-    return sponserServices.updateSponser(sponser,integer);
+  public ResponseEntity<Object> updateSponser(@RequestBody Sponsor sponser, @PathVariable("id") Integer integer) {
+    return sponserServices.updateSponser(sponser, integer);
   }
 
   @DeleteMapping(value = "/sponsors/remove/{id}")
@@ -40,3 +42,14 @@ public class SponsorController {
     sponserServices.deleteSponsers(id);
   }
 }
+
+//  @GetMapping(value = "/sponsors/getByIsbn/{isbn}")
+//  public Optional<Sponsor> getByIsbn(@PathVariable ("isbn") Integer integer){
+//    return sponserServices.getByIsbn(integer);
+//  }
+
+//  @GetMapping(value = "/sponsors/getByEmpid/{empid}")
+//  public Optional<Sponsor> getByEmpid(Integer integer) {
+//    return sponserServices.getByEmpid(integer);
+//  }
+//}

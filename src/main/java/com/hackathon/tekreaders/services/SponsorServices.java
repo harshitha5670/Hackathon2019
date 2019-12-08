@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import java.math.BigInteger;
 import java.util.List;
 import java.util.Optional;
 
@@ -43,4 +44,12 @@ public class SponsorServices {
   public void deleteSponsers(Integer integer) {
     sponserRepository.deleteById(integer);
   }
+
+//  public Optional<Sponsor> getByIsbn(Integer integer) {
+//    return sponserRepository.getByIsbn(integer);
+//  }
+//
+//  public Optional<Sponsor> getByEmpid(Integer integer) {
+//    return  sponserRepository.getByEmpid(integer);
+//  }
 }

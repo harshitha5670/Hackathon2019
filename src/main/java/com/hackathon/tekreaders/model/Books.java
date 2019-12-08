@@ -1,19 +1,19 @@
 package com.hackathon.tekreaders.model;
 
 import javax.persistence.*;
+import java.math.BigInteger;
 
 @Entity
 @Table(name = "books")
 public class Books {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  @Column
+  @Column(nullable = false)
   private Integer isbn;
   @OneToOne(cascade = CascadeType.ALL)
   @JoinColumn(name = "language",referencedColumnName = "languageid")
   private Language language;
-  @Column
+  @Column(nullable = false)
   private String title;
   @OneToOne(cascade = CascadeType.ALL)
   @JoinColumn(name = "author",referencedColumnName = "authorid")
@@ -23,10 +23,14 @@ public class Books {
   @OneToOne(cascade = CascadeType.ALL)
   @JoinColumn(name = "category",referencedColumnName = "categoryid")
   private Category category;
+  @Column
+  private String description;
   @OneToOne(cascade = CascadeType.ALL)
   @JoinColumn(name = "status", referencedColumnName = "statusid")
   private BookStatus bookStatus;
 
+  public Books() {
+  }
 
   public Integer getIsbn() {
     return isbn;
@@ -84,6 +88,14 @@ public class Books {
     this.bookStatus = bookStatus;
   }
 
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
   @Override
   public String toString() {
     return "Books{" +
@@ -93,6 +105,7 @@ public class Books {
       ", authors=" + authors +
       ", pagecount=" + pagecount +
       ", category=" + category +
+      ", description='" + description + '\'' +
       ", bookStatus=" + bookStatus +
       '}';
   }

@@ -26,4 +26,8 @@ public class CategoryController {
   public List<Category> addCategory(@RequestBody Category category) {
     return services.addCategory(category);
   }
+//  @GetMapping(value = "/category/byName/{name}")
+//  public Optional<Category> getByCategoryName (@PathVariable("name") String string) {
+//    return services.findByCategoryName(string);
+//  }
 }
